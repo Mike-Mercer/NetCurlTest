@@ -31,4 +31,4 @@ Connection: Keep-Alive
 ```
 
 What do we see here? The client has sent the API request and while waiting for a response  `SSL_read()` the connection suddenly died.
-Then curl tells us that its gonna retrying a fresh connect, however we can see that only using `CURLOPT_VERBOSE`  
+TThen curl tells us that it will try a fresh connect, however we can see that only using `CURLOPT_VERBOSE`  
