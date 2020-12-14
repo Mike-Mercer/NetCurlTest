@@ -28,6 +28,7 @@ Connection: Keep-Alive
 * ALPN, offering http/1.1
 * SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
 * ALPN, server accepted to use http/1.1
+```
 
 What do we see here? The client has sent the API request and while waiting for a response  `SSL_read()` the connection suddenly died.
 Then curl tells us that its gonna retrying a fresh connect, however we can see that only using `CURLOPT_VERBOSE`  
