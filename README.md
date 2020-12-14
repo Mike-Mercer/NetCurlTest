@@ -28,14 +28,6 @@ Connection: Keep-Alive
 * ALPN, offering http/1.1
 * SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256
 * ALPN, server accepted to use http/1.1
-* Server certificate:
-*  subject: C=KY; L=George Town; O=Binance Holdings Limited; OU=IT; CN=*.binance.com
-*  start date: Jan  7 00:00:00 2020 GMT
-*  expire date: Apr  7 12:00:00 2022 GMT
-*  subjectAltName: host "fapi.binance.com" matched cert's "*.binance.com"
-*  issuer: C=US; O=DigiCert Inc; OU=www.digicert.com; CN=GeoTrust RSA CA 2018
-*  SSL certificate verify result: unable to get local issuer certificate (20), continuing anyway.
-> GET /fapi/v1/ticker/bookTicker HTTP/1.1
 
-Host: fapi.binance.com
-```
+What do we see here? The client has sent the API request and while waiting for a response  `SSL_read()` the connection suddenly died.
+Then curl tells us that its gonna retrying a fresh connect, however we can see that only using `CURLOPT_VERBOSE`  
